@@ -1,0 +1,58 @@
+Run application
+->  mvn spring-boot:run
+
+Atualizar dados de várias linhas
+-> ctrl + D
+
+/* API REST
+* - GET: Buscar uma informação
+* - PUT: Alterar uma informação
+* - POST: Inserir uma informação
+* - DELETE: Remover uma informação
+* - PATCH: Alterar PONTUAL de uma informação
+* 
+* Os tipos de Parâmetros
+* - Body: { }
+* - Query Params: http://localhost:8085/users?nome=Daniele&idade=34 OPCIONAIS
+* - Parâmetros de rotas: http://localhost:8085/users/{nome}/{idade}
+*/
+
+@Data
+- cria os getters e setters
+Caso queira definir somente get e set usar: "@Getters" / "@Setters"
+
+@AllArgsConstructor
+- cria um construtor com TODOS os atributos
+
+@NoArgsConstructor
+- cria um construtor vazio
+Ex:
+public CertificationStudentEntity() {
+}
+
+
+/*
+* In "application.properties"
+*
+* - definindo que iremos utilizar o postgres
+* spring.jpa.properties.hibernate.dialect=org.hibernate.dialetc.PostgreSQLDialect
+*/
+
+In StudentEntity.java
+- por mais que estamos utilizando o spring data jpa com hibernate, iremos utilizar o "jakarta.persistence.Entity"
+- ele é convertido pra uma tabela
+- se não passar dados, o ORM entende que o nome da tabela será "StudentEntity"
+- ou seja: "@Entity(name = "students")"
+- mapear os campos
+- usar o @Id do "jakarta"
+- pedir para o ORM gerar o Id
+- não precisa colocar o "@Column" para mudar nome da coluna do email
+
+Gerando dados de forma automatica
+- spring.jpa.hibernate.ddl-auto=update
+
+ORM -> Object Relational Mapper
+
+Repositório (Repository) -> Interagir com o banco de dados.
+
+Criando um "Seed" para SQL
